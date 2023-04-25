@@ -31,7 +31,8 @@ searchBtn.addEventListener('click',()=>{
 async function getWeather(town) {
  try{   
   const response = await fetch(
-    "http://api.weatherapi.com/v1/current.json?key=2031675dc6484b6e90b152228232404&q=" + town,
+    "https://api.weatherapi.com/v1/current.json?key=2031675dc6484b6e90b152228232404&q=" +
+      town,
     { mode: "cors" }
   );
   const weatherData = await response.json();
