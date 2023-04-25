@@ -1,0 +1,182 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');  
+  
+:root {
+    --blue: #184f77;
+    --light-blue: #178bad;
+    --dark-blue: #0e2d44;
+    --white: #ffffff;
+    --transparent-white: rgba(255, 255, 255, 0.5);
+    --warning-green: #7eb356;
+    --warning-yellow: #f9c74f;
+    --warning-orange: #ed8607;
+    --warning-red: #f94144;
+  }
+
+
+
+
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--blue);
+    background: var(--blue);
+    background: -webkit-linear-gradient(top, var(--light-blue), var(--blue));
+    background: -moz-linear-gradient(top, var(--light-blue), var(--blue));
+    background: linear-gradient(to bottom, var(--light-blue), var(--blue))
+  }
+
+
+  .wrapper {
+    display: grid; 
+    grid-template-columns: 0.4fr 1fr; 
+    grid-template-rows: 0.3fr 2.6fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "header header"
+      "mainContent picture"; 
+  }
+
+
+  .header{
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    padding: 0.8rem;
+    gap: 8px;
+    align-items: center;
+    font-size: 1.5rem;
+
+  
+  }
+
+  .mainContent{
+    grid-area: mainContent;
+  }
+
+
+  .picturePart{
+    grid-area: picture;
+  }
+
+
+
+  .search {
+    grid-area: search;
+    justify-self: center;
+    height: 41px;
+  }
+  
+  .search > * {
+    background-color: var(--dark-blue);
+    height: 40px;
+    border: none;
+    font-size: 18px;
+    color: var(--white);
+    transition: border 0.3s;
+  }
+  
+  .search-input:focus,
+  .search-input:focus + .search-submit {
+    border: 2px solid var(--white);
+    transition: border 0.3s;
+  }
+  
+  .search-input {
+    font-family: 'Nunito', sans-serif;
+    padding: 4px 0 4px 16px;
+    width: 256px;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    border: 2px solid var(--dark-blue);
+    border-right: none !important;
+  }
+  
+  .search-submit {
+    cursor: pointer;
+    width: 52px;
+    line-height: 1;
+    border-radius: 0 20px 20px 0;
+    border: 2px solid var(--dark-blue);
+    border-left: none !important;
+  }
+
+  
+.locationInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.townInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.1rem;
+    font-weight: 600;
+    gap: 15px;
+}
+
+#locationDate{
+    color: var(--transparent-white);
+    
+}
+
+.weatherInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.a{
+    display: flex;
+    justify-content: center;
+
+}
+
+.statsContent{
+    display: grid;
+  gap: 52px;
+  grid-template-columns: 1fr 1fr ;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+.details-title{
+    margin: 0;
+  font-size: 1.5rem;
+
+}
+
+.details-data-feelsLike,.details-data-humidity,.details-data-wind,#weatherText{
+    color: var(--transparent-white);
+    font-size: 1.2rem;
+}
+
+#searchPart{
+    display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+   margin-top: 20px;
+}
+
+
+.picturePart{
+    padding-left: 50px;
+
+}
+
+
+.weatherPicture{
+    border-radius: 150px;
+}
+
+
