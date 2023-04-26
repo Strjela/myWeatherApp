@@ -22,11 +22,20 @@ const inputField = document.querySelector('.search-input');
 window.onload = getWeather('Tokyo')
 
 //sve se zasniva na pretrazivanju te se sve pokrece tek kad se stisne search btn
-searchBtn.addEventListener('click',()=>{
-    const NewInput = inputField.value;
-     getWeather(NewInput)
-  })
+// searchBtn.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const NewInput = inputField.value;
+//   getWeather(NewInput);
+// });
 
+
+const forma = document.querySelector('.search')
+
+
+forma.addEventListener('submit',(e)=>{
+  e.preventDefault()
+  getWeather(inputField.value)
+})
 
 async function getWeather(town) {
   try {
@@ -58,7 +67,7 @@ async function getWeather(town) {
     // funkcija za mjenjanje slike vremena
     changeWeatherPicture(weatherData.current.condition.text);
   } catch (e) {
-    console.log(e);
+    console.error(e);
     console.log("alooo");
   }
 }
