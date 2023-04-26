@@ -66,9 +66,10 @@ async function getWeather(town) {
     feelsLikeStatus.textContent = weatherData.current.feelslike_c + "°C";
     // funkcija za mjenjanje slike vremena
     changeWeatherPicture(weatherData.current.condition.text);
+    ifValid();
   } catch (e) {
     console.error(e);
-    console.log("alooo");
+    ifInvalid();
   }
 }
 
@@ -79,8 +80,6 @@ async function GetCountryCodeAndFlag(name) {
   const countryCode = data[0].altSpellings[0];
   return (flagDOM.src = `https://www.countryflagicons.com/SHINY/64/${countryCode}.png`);
 }
-
-
 
 //funkcija prima local time i formatira ga prema mojoj zelji
 function getCurrentDateAndTime(dateString) {
@@ -139,4 +138,24 @@ function changeWeatherPicture(weatherStatus) {
   }
 }
 
+const errHndl = document.querySelector(".errHndl");
+const alo = document.querySelector(".show");
+
+function ifInvalid() {
+  alo.style.display = "none";
+  errHndl.style.display = "flex";
+  weatherPicture.src =
+    "https://media.giphy.com/media/HKNyuJ5hTrFpmmQr5A/giphy.gif";
+  weatherPicture.width = 480;
+  weatherPicture.hight = 480;
+  weatherPicture.style.margin = "0px 0px 0px 150px";
+}
+
+function ifValid() {
+  alo.style.display = "block";
+  errHndl.style.display = "none";
+  weatherPicture.width = 980;
+  weatherPicture.hight = 620;
+  weatherPicture.style.margin = "0px";
+}
 
