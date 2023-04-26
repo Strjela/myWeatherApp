@@ -59,6 +59,7 @@ async function getWeather(town) {
     changeWeatherPicture(weatherData.current.condition.text);
   } catch (e) {
     console.log(e);
+    console.log("alooo");
   }
 }
 
@@ -67,9 +68,10 @@ async function GetCountryCodeAndFlag(name) {
   const response = await fetch(`https://restcountries.com/v3.1/name/` + name);
   const data = await response.json();
   const countryCode = data[0].altSpellings[0];
-  return (flagDOM.src =
-    "https://www.countryflagicons.com/SHINY/64/" + countryCode + ".png");
+  return (flagDOM.src = `https://www.countryflagicons.com/SHINY/64/${countryCode}.png`);
 }
+
+
 
 //funkcija prima local time i formatira ga prema mojoj zelji
 function getCurrentDateAndTime(dateString) {
