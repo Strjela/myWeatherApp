@@ -176,6 +176,7 @@ body{
 
 
 .weatherPicture{
+  display: block;
     border-radius: 150px;
 }
 
@@ -198,3 +199,75 @@ body{
   justify-content:center ;
   align-items: center;
 }
+
+.questionPic{
+  display: none;
+  margin: 120px 120px 120px 200px;
+}
+
+@media only screen and (max-width: 572px) {
+  body{
+    background-color: var(--light-blue);
+    background: var(--light-blue);
+    background: -webkit-linear-gradient(top, var(--light-blue), var(--light-blue));
+    background: -moz-linear-gradient(top, var(--light-blue), var(--light-blue));
+    background: linear-gradient(to bottom, var(--light-blue), var(--light-blue))
+  }
+
+  .wrapper {
+  
+    grid-template-columns: auto; 
+    grid-template-rows: auto auto auto; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "header "
+      "mainContent"
+      'picture'; 
+  }
+
+  .header{
+    font-size: 1rem;
+    margin-left: 40px;
+  }
+
+  .icon{
+    width: 60px;
+    height: 60px;
+  }
+
+  #searchPart{
+    justify-content: flex-start;
+    margin-left: 12%;
+  }
+
+  .show{
+    margin-left:4% ;
+  }
+
+  .picturePart{
+    /* margin-left: 2%;
+    margin-top: 2%; */
+    margin: 5%;
+  }
+
+  .weatherPicture{
+    width: 270px;
+    height: 180px;
+    
+  }
+
+  .errHndl{
+    /* margin-left: -10%; */
+  }
+
+
+  .questionPic{
+    width: 270px;
+    height: 180px;
+    margin: 0;
+  }
+}
+
+
+
+

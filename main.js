@@ -141,19 +141,30 @@ function changeWeatherPicture(weatherStatus) {
 const errHndl = document.querySelector(".errHndl");
 const alo = document.querySelector(".show");
 
+const pPart = document.querySelector(".picturePart");
+const questionPic = document.createElement("img");
+questionPic.classList.add("questionPic");
+
 function ifInvalid() {
   alo.style.display = "none";
   errHndl.style.display = "flex";
-  weatherPicture.src =
+
+  pPart.appendChild(questionPic);
+  questionPic.src =
     "https://media.giphy.com/media/HKNyuJ5hTrFpmmQr5A/giphy.gif";
-  weatherPicture.width = 480;
-  weatherPicture.hight = 480;
-  weatherPicture.style.margin = "0px 0px 0px 150px";
+  weatherPicture.style.display = "none";
+  questionPic.style.display = "block";
+
+  questionPic.width = 480;
+  questionPic.hight = 320;
 }
 
 function ifValid() {
   alo.style.display = "block";
   errHndl.style.display = "none";
+  questionPic.style.display = "none";
+  weatherPicture.style.display = "block";
+
   weatherPicture.width = 980;
   weatherPicture.hight = 620;
   weatherPicture.style.margin = "0px";
