@@ -73,6 +73,8 @@ async function getWeather(town) {
   }
 }
 
+
+
 // funkcija za dobivanje koda drzave npr. Croatia u HR kako bih smo ga iskoristili za dobivanje zastave
 async function GetCountryCodeAndFlag(name) {
   const response = await fetch(`https://restcountries.com/v3.1/name/` + name);
@@ -83,7 +85,12 @@ async function GetCountryCodeAndFlag(name) {
 
 //funkcija prima local time i formatira ga prema mojoj zelji
 function getCurrentDateAndTime(dateString) {
-  const date = new Date(dateString);
+  const [datePart, timePart] = dateString.split(" ");
+
+  const [year, month, day] = datePart.split("-");
+  const [hour, minute] = timePart.split(":");
+
+  const date = new Date(year, month - 1, day, hour, minute);
 
   const months = [
     "January",
@@ -100,14 +107,13 @@ function getCurrentDateAndTime(dateString) {
     "December",
   ];
 
-  const day = date.toLocaleString("en-US", { weekday: "long" });
-  const month = months[date.getMonth()];
-  const year = date.getFullYear();
+  const dayOfWeek = date.toLocaleString("en-US", { weekday: "long" });
+  const monthName = months[date.getMonth()];
+  const formattedDate = `${dayOfWeek} ${date.getDate()} ${monthName} ${date.getFullYear()} | ${hour}:${minute}`;
 
-  const hour = date.toLocaleString("en-US", { hour: "numeric", hour12: false });
-  const minute = date.toLocaleString("en-US", { minute: "numeric" });
-  const formattedDate = `${day} ${date.getDate()} ${month} ${year} | ${hour}:${minute}`;
-
+  console.log(hour);
+  console.log(minute);
+  console.log(formattedDate);
   return (currentTime.textContent = formattedDate);
 }
 
